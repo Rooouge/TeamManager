@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<players>
+	<player name="rouge">
+		<mainroles>CB;CM</mainroles>
+		<otherroles>ALL</otherroles>
+		<value>8</value>
+	</player>
+	<player name="goni">
+		<mainroles>GK</mainroles>
+		<otherroles></otherroles>
+		<value>8</value>
+	</player>
+	<player name="ferah">
+		<mainroles>CB;LW</mainroles>
+		<otherroles>RW;CM</otherroles>
+		<value>7.5</value>
+	</player>
+	<player name="darge">
+		<mainroles>CB;CM</mainroles>
+		<otherroles></otherroles>
+		<value>7</value>
+	</player>
+	<player name="tino">
+		<mainroles>LW</mainroles>
+		<otherroles>RW;CM;ST</otherroles>
+		<value>8.5</value>
+	</player>
+	<player name="ladi">
+		<mainroles>RW;CM;LW</mainroles>
+		<otherroles>CB</otherroles>
+		<value>9</value>
+	</player>
+	<player name="gabros">
+		<mainroles>GK</mainroles>
+		<otherroles></otherroles>
+		<value>7</value>
+	</player>
+	<player name="guido">
+		<mainroles>RW;LW</mainroles>
+		<otherroles>CB</otherroles>
+		<value>7</value>
+	</player>
+	<player name="pizzo">
+		<mainroles>CB</mainroles>
+		<otherroles>CM</otherroles>
+		<value>7.5</value>
+	</player>
+	<player name="zappa">
+		<mainroles>ST</mainroles>
+		<otherroles></otherroles>
+		<value>6.5</value>
+	</player>
+	<player name="robby">
+		<mainroles>CM;CB</mainroles>
+		<otherroles>ALL</otherroles>
+		<value>7.5</value>
+	</player>
+	<player name="jack">
+		<mainroles>LW;CM;RW</mainroles>
+		<otherroles>ST</otherroles>
+		<value>8.5</value>
+	</player>
+	<player name="charles">
+		<mainroles>LW;RW</mainroles>
+		<otherroles>ALL</otherroles>
+		<value>7.5</value>
+	</player>
+	<player name="macel">
+		<mainroles>CB</mainroles>
+		<otherroles>CM;ST</otherroles>
+		<value>6.5</value>
+	</player>
+	<player name="alby">
+		<mainroles>CM;ST</mainroles>
+		<otherroles>LW;RW</otherroles>
+		<value>8.5</value>
+	</player>
+</players>
