@@ -25,10 +25,10 @@ public class ImagesGenerator {
 		
 		g.setFont(GUI.FONT_IMAGE);
 		for(Player player : teams[0].getPlayers()) {
-			GUI.drawPlayer(g, player, false, bg, 2);
+			GUI.drawPlayer(g, player, false, bg, 2, GUI.RED_TEAM);
 		}
 		for(Player player : teams[1].getPlayers()) {
-			GUI.drawPlayer(g, player, true, bg, 2);
+			GUI.drawPlayer(g, player, true, bg, 2, GUI.BLUE_TEAM);
 		}
 		
 		ImageIO.write(img, "png", file);

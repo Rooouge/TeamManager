@@ -27,6 +27,10 @@ public class GUI {
 	public static final Color GREEN_TEXT = new Color(64, 255, 64);
 	public static final Color GRAY_TEXT = Colors.gray(128);
 	
+	public static final Color RED_TEAM = new Color(255, 96, 64);
+	public static final Color BLUE_TEAM = new Color(64, 96, 255);
+	
+	
 	
 	public static void createNewWindow() throws Exception {
 		if(window != null)
@@ -42,7 +46,7 @@ public class GUI {
 	}
 	
 	
-	public static void drawPlayer(Graphics g, Player player, boolean invert, ImageIcon bg, int scale) {
+	public static void drawPlayer(Graphics g, Player player, boolean invert, ImageIcon bg, int scale, Color color) {
 		Roles role = player.getActiveRole();
 		
 		int x = invert ? bg.getIconWidth() - scale*role.getX() : scale*role.getX();
@@ -59,7 +63,7 @@ public class GUI {
 			}
 		}
 		
-		GUI.drawCenteredString(g, player.getName().toUpperCase(), x, y, Color.white);
+		GUI.drawCenteredString(g, player.getName().toUpperCase(), x, y, color);
 	}
 	
 	public static void drawCenteredString(Graphics g, String text, int x, int y, Color color) {

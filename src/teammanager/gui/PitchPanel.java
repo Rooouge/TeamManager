@@ -42,10 +42,10 @@ public class PitchPanel extends ColoredPanel {
 		
 		if(drawTeams) {
 			for(Player player : teams.getTeams()[0].getPlayers()) {
-				GUI.drawPlayer(g, player, false, PITCH_IMAGE, 1);
+				GUI.drawPlayer(g, player, false, PITCH_IMAGE, 1, GUI.RED_TEAM);
 			}
 			for(Player player : teams.getTeams()[1].getPlayers()) {
-				GUI.drawPlayer(g, player, true, PITCH_IMAGE, 1);
+				GUI.drawPlayer(g, player, true, PITCH_IMAGE, 1, GUI.BLUE_TEAM);
 			}
 		}
 	}
