@@ -7,6 +7,8 @@ import java.awt.Graphics;
 
 import javax.swing.ImageIcon;
 
+import jutils.asserts.Assert;
+import jutils.asserts.AssertException;
 import jutils.config.Config;
 import jutils.gui.Colors;
 import teammanager.gui.newplayer.NewPlayerDialog;
@@ -27,9 +29,24 @@ public class GUI {
 	public static final Color GREEN_TEXT = new Color(64, 255, 64);
 	public static final Color GRAY_TEXT = Colors.gray(128);
 	
-	public static final Color RED_TEAM = new Color(255, 96, 64);
-	public static final Color BLUE_TEAM = new Color(64, 96, 255);
+	public static final Color TEAM_0_COLOR;
+	public static final Color TEAM_1_COLOR;
 	
+	
+	static {
+		String[] rgb0 = Config.getValue("team-0-color").split(",");
+		String[] rgb1 = Config.getValue("team-1-color").split(",");
+		
+		try {
+			Assert.isTrue(rgb0.length == 3, "Color must be specified in the format \"R,G,B\" (0-255");
+			Assert.isTrue(rgb1.length == 3, "Color must be specified in the format \"R,G,B\" (0-255");
+		} catch (AssertException e) {
+			e.printStackTrace();
+		}
+		
+		TEAM_0_COLOR = new Color(Integer.parseInt(rgb0[0]), Integer.parseInt(rgb0[1]), Integer.parseInt(rgb0[2]));
+		TEAM_1_COLOR = new Color(Integer.parseInt(rgb1[0]), Integer.parseInt(rgb1[1]), Integer.parseInt(rgb1[2]));
+	}
 	
 	
 	public static void createNewWindow() throws Exception {
@@ -53,21 +70,33 @@ public class GUI {
 		int y = invert ? bg.getIconHeight() - scale*role.getY() : scale*role.getY();
 		
 		int bound = scale*2 + (scale == 2 ? -1 : 0);
+		float alphaFraction = bound*2/48;
 		
 		for(int i = -bound; i <= bound; i++) {
+//			System.out.println(0);
 			for(int j = -bound; j <= bound; j++) {
+//				System.out.println(1);
 				boolean checkCorners = (i == -bound && j == -bound) || (i == -bound && j == bound) || (i == bound && j == -bound) || (i == bound && j == bound);
 				
-				if(!checkCorners)
-					GUI.drawCenteredString(g, player.getName().toUpperCase(), x+i, y+j, Colors.GRAY_48);
+				if(!checkCorners) {
+//					float alpha = Math.max(alphaFraction * (-i), alphaFraction * (-j));
+//					if(alpha < 0)
+//						alpha = 0;
+					
+					GUI.drawCenteredString(g, player.getName().toUpperCase(), x+i, y+j, Colors.GRAY_48, 0);
+				}
 			}
 		}
 		
-		GUI.drawCenteredString(g, player.getName().toUpperCase(), x, y, color);
+		GUI.drawCenteredString(g, player.getName().toUpperCase(), x, y, color, 0);
 	}
 	
-	public static void drawCenteredString(Graphics g, String text, int x, int y, Color color) {
+	public static void drawCenteredString(Graphics g, String text, int x, int y, Color color, float alpha) {
 		Color previous = g.getColor();
+		
+		float[] colorComponents = color.getColorComponents(null);
+		
+//		g.setColor(new Color(colorComponents[0], colorComponents[1], colorComponents[2], alpha));
 		g.setColor(color);
 		
 	    FontMetrics metrics = g.getFontMetrics(g.getFont());
