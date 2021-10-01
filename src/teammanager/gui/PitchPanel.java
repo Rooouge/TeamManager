@@ -6,12 +6,12 @@ import java.awt.Graphics;
 import javax.swing.ImageIcon;
 
 import jutils.config.Images;
-import jutils.gui.ColoredPanel;
+import jutils.gui.TransparentPanel;
 import teammanager.players.Player;
 import teammanager.teams.Teams;
 
 @SuppressWarnings("serial")
-public class PitchPanel extends ColoredPanel {
+public class PitchPanel extends TransparentPanel {
 
 	private static final ImageIcon PITCH_IMAGE = Images.getImageIcon("pitch-512x");
 	
@@ -20,7 +20,7 @@ public class PitchPanel extends ColoredPanel {
 	
 	
 	public PitchPanel() throws Exception {
-		super(null);
+		super();
 		
 		drawTeams = false;
 		

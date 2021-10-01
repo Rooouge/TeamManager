@@ -16,11 +16,11 @@ import javax.swing.JTextField;
 
 import jutils.asserts.Assert;
 import jutils.asserts.AssertException;
-import jutils.gui.ColoredPanel;
 import jutils.gui.ColoredTitledBorder;
 import jutils.gui.Colors;
 import jutils.gui.Content;
 import jutils.gui.EmptyBorder;
+import jutils.gui.TransparentPanel;
 import jutils.random.Utils;
 import jutils.strings.Strings;
 import teammanager.gui.GUI;
@@ -64,17 +64,17 @@ public class NewPlayerContent extends Content {
 		valueLabel.setForeground(Color.white);
 		
 		
-		ColoredPanel namePanel = new ColoredPanel(null, new FlowLayout(FlowLayout.LEFT, 5, 0));
+		TransparentPanel namePanel = new TransparentPanel(new FlowLayout(FlowLayout.LEFT, 5, 0));
 		namePanel.add(nameLabel);
 		namePanel.add(nameField);
 		
 		
-		ColoredPanel valuePanel = new ColoredPanel(null, new FlowLayout(FlowLayout.LEFT, 5, 0));
+		TransparentPanel valuePanel = new TransparentPanel(new FlowLayout(FlowLayout.LEFT, 5, 0));
 		valuePanel.add(valueLabel);
 		valuePanel.add(valueField);
 		
 		
-		ColoredPanel panel = new ColoredPanel(null, new BorderLayout(0, 5));
+		TransparentPanel panel = new TransparentPanel(new BorderLayout(0, 5));
 		panel.add(namePanel, BorderLayout.NORTH);
 		panel.add(valuePanel, BorderLayout.SOUTH);
 				
@@ -91,7 +91,7 @@ public class NewPlayerContent extends Content {
 		JPanel mainRolesPanel = buildCheckBoxesPanel(mainRoles, "MAIN ROLES");
 		JPanel otherRolesPanel = buildCheckBoxesPanel(otherRoles, "OTHER ROLES");
 		
-		ColoredPanel panel = new ColoredPanel(null, new BorderLayout(25, 0));
+		TransparentPanel panel = new TransparentPanel(new BorderLayout(25, 0));
 		panel.add(mainRolesPanel, BorderLayout.WEST);
 		panel.add(otherRolesPanel, BorderLayout.EAST);
 		
@@ -118,7 +118,7 @@ public class NewPlayerContent extends Content {
 		JLabel label = new JLabel(labelText);
 		label.setForeground(Colors.gray(128));
 		
-		ColoredPanel panel = new ColoredPanel(null, new GridLayout(boxes.length + 1, 1, 0, 2));
+		TransparentPanel panel = new TransparentPanel(new GridLayout(boxes.length + 1, 1, 0, 2));
 		panel.add(label);
 		for(JCheckBox box : boxes) {
 			panel.add(box);
@@ -147,7 +147,7 @@ public class NewPlayerContent extends Content {
 			}
 		});
 		
-		ColoredPanel panel = new ColoredPanel(null, new FlowLayout());
+		TransparentPanel panel = new TransparentPanel(new FlowLayout());
 		panel.add(button);
 		
 		return panel;

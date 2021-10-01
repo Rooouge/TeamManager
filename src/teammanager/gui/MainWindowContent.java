@@ -14,6 +14,7 @@ import javax.swing.JFileChooser;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.border.Border;
 
 import jutils.asserts.Assert;
 import jutils.config.Images;
@@ -23,6 +24,7 @@ import jutils.gui.Colors;
 import jutils.gui.Content;
 import jutils.gui.EmptyBorder;
 import jutils.gui.IconOnlyButton;
+import jutils.gui.TransparentPanel;
 import jutils.log.Log;
 import teammanager.Utils;
 import teammanager.images.ImagesGenerator;
@@ -126,22 +128,19 @@ public class MainWindowContent extends Content {
 			}
 		});
 		
-		ColoredPanel leftPanel = new ColoredPanel(null, new GridLayout(1, 2, 15, 0));
-		
+		TransparentPanel leftPanel = new TransparentPanel(new GridLayout(1, 2, 15, 0));
 		leftPanel.add(newPlayer);
 		leftPanel.add(makeTeams);
 		
 		
-		ColoredPanel rightPanel = new ColoredPanel(null, new GridLayout(1, 3, 15, 0));
-		
+		TransparentPanel rightPanel = new TransparentPanel(new GridLayout(1, 3, 15, 0));
 		rightPanel.add(saveImage);
 		rightPanel.add(saveXML);
 		rightPanel.add(openXML);
 		
 		
-		ColoredPanel panel = new ColoredPanel(null, new BorderLayout(10, 0));
-		panel.setBorder(BorderFactory.createCompoundBorder(new ColoredTitledBorder(Colors.CYAN, "OPERATIONS", 2), new EmptyBorder(10)));
-		
+		Border border = BorderFactory.createCompoundBorder(new ColoredTitledBorder(Colors.CYAN, "OPERATIONS", 2), new EmptyBorder(10));
+		TransparentPanel panel = new TransparentPanel(new BorderLayout(10, 0), border);
 		panel.add(leftPanel, BorderLayout.WEST);
 		panel.add(rightPanel, BorderLayout.EAST);
 		
@@ -203,7 +202,7 @@ public class MainWindowContent extends Content {
 		
 		checkBoxesPanel.add(countLabel);
 		
-		ColoredPanel panel = new ColoredPanel(null, new FlowLayout());
+		TransparentPanel panel = new TransparentPanel(new FlowLayout());
 		panel.add(checkBoxesPanel);
 		
 		return panel;

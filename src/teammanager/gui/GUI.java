@@ -70,21 +70,13 @@ public class GUI {
 		int y = invert ? bg.getIconHeight() - scale*role.getY() : scale*role.getY();
 		
 		int bound = scale*2 + (scale == 2 ? -1 : 0);
-		float alphaFraction = bound*2/48;
 		
 		for(int i = -bound; i <= bound; i++) {
-//			System.out.println(0);
 			for(int j = -bound; j <= bound; j++) {
-//				System.out.println(1);
 				boolean checkCorners = (i == -bound && j == -bound) || (i == -bound && j == bound) || (i == bound && j == -bound) || (i == bound && j == bound);
 				
-				if(!checkCorners) {
-//					float alpha = Math.max(alphaFraction * (-i), alphaFraction * (-j));
-//					if(alpha < 0)
-//						alpha = 0;
-					
+				if(!checkCorners)					
 					GUI.drawCenteredString(g, player.getName().toUpperCase(), x+i, y+j, Colors.GRAY_48, 0);
-				}
 			}
 		}
 		
@@ -94,9 +86,6 @@ public class GUI {
 	public static void drawCenteredString(Graphics g, String text, int x, int y, Color color, float alpha) {
 		Color previous = g.getColor();
 		
-		float[] colorComponents = color.getColorComponents(null);
-		
-//		g.setColor(new Color(colorComponents[0], colorComponents[1], colorComponents[2], alpha));
 		g.setColor(color);
 		
 	    FontMetrics metrics = g.getFontMetrics(g.getFont());
